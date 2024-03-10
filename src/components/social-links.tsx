@@ -8,10 +8,10 @@ export default function SocialLinks() {
             <ul className="flex items-center">
                 <li className=" flex items-center space-x-6">
                     <Link href="https://www.facebook.com/groups/145843222848964">
-                        <BsFacebook size={30} color="blue"/>
+                        <BsFacebook size={30} />
                     </Link>
                     <Link href="https://www.youtube.com/@SupremeLalbaghians">
-                        <BsYoutube size={30} color="red" />
+                        <BsYoutube size={30} />
                     </Link>
                     <Link href="https://www.youtube.com/@SupremeLalbaghians">
                         <BsTwitter size={30}  />
