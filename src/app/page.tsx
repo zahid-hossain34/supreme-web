@@ -1,10 +1,12 @@
 
-import Hero from "@/components/hero";
+import RecentGames from "@/components/recent-games";
+import TrendingNews from "@/components/trending";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col">
-        <Hero />
+    <main className="flex flex-col">
+      <RecentGames />
+      <TrendingNews />
     </main>
   );
 }

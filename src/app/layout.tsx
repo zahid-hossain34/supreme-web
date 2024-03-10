@@ -6,6 +6,7 @@ import ActiveSectionContextProvider from "@/context/active-section-context";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 import ThemeSwitch from "@/components/theme-switch";
+import Hero from "@/components/hero";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,9 +26,9 @@ export default function RootLayout({
       <ThemeContextProvider>
           <ActiveSectionContextProvider>
             <Header />
+            <Hero />
             {children}
             <Footer />
-
             {/* <Toaster position="top-right" /> */}
             <ThemeSwitch />
           </ActiveSectionContextProvider>

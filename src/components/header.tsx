@@ -15,8 +15,9 @@ export default function Header() {
   return (
     <motion.div
       className="relative bg-slate-50 flex justify-around items-center h-26 px-6 py-1 shadow-lg"
-      initial={{ y: -100, opacity: 0 }}
+      initial={{ y: -10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.1}}
     >
       <Link href="#home">
         <Logo />
