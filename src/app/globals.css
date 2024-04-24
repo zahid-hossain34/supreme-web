@@ -1,8 +1,8 @@
 @tailwind base;
-@tailwind components;
 @tailwind utilities;
+@tailwind components;
 
-html {
+/* html {
   --line-color: #e5e7eb;
 }
 
@@ -12,4 +12,5 @@ html.dark {
 
 .borderBlack {
   @apply border border-black/10;
-}
+} */
+

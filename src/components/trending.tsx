@@ -4,17 +4,28 @@ import Image from "next/image";
 import img1 from "../../public/images/img-9.jpg";
 import img2 from "../../public/images/img-10.jpg";
 import { motion } from "framer-motion";
+import { useSectionInView } from "@/lib/hoocks";
 
 export default function TrendingNews() {
-  return (
+    const { ref } = useSectionInView("Events");
+  
+    return (
     <motion.div
+      ref={ref}
       className="w-full  px-28 pt-10 pb-10 grid grid-cols-2 items-center gap-8"
-      initial={{ y: -10, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      initial={{
+        opacity: 0,
+        y: 100,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
       transition={{
-        type: "spring",
-        stiffness: 380,
-        damping: 30,
+        duration: 1,
+      }}
+      viewport={{
+        once: true,
       }}
     >
         <div className="col-span-1 space-y-6 break-words">

@@ -1,3 +1,4 @@
+'use client';
 import Link from "next/link";
 import { BsArrowRight, BsSend } from "react-icons/bs";
 

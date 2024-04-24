@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { headerLinks } from "@/lib/data";
@@ -12,24 +12,40 @@ import SocialLinks from "./social-links";
 export default function Header() {
   const { activeSection, setActiveSection, setTimeOfLastClick } =
     useActiveSectionContext();
+  const [isScrolled, setIsScrolled] = useState(false);
+  const prevScrollY = useRef(0);
+
+  useEffect(() => {
+    function handleScroll() {
+      const currentScrollY = window.scrollY;
+      setIsScrolled(prevScrollY.current < currentScrollY && currentScrollY > 50);
+      prevScrollY.current = currentScrollY;
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  
   return (
-    <motion.div
-      className="relative bg-slate-50 flex justify-around items-center h-26 px-6 py-1 shadow-lg"
-      initial={{ y: -10, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.1}}
+    <header
+      className={clsx(
+        "sticky top-0 left-0 bg-slate-50 flex z-10 w-full justify-around items-center h-26 px-6 py-1 shadow-lg transition-all duration-300",
+        {
+          "-translate-y-full": isScrolled,
+        }
+      )}
     >
       <Link href="#home">
         <Logo />
       </Link>
-      <nav className="flex h-full w-[26rem]">
+      <nav className="flex h-full ">
         <ul className="flex w-full flex-wrap items-center justify-center gap-y-1 text-[0.9rem] font-medium text-gray-500 ">
           {headerLinks.map((link) => (
             <motion.li
               className="h-3/4 flex items-center justify-center relative"
               key={link.hash}
-              initial={{ y: -100, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
             >
               <Link
                 className={clsx(
@@ -64,7 +80,6 @@ export default function Header() {
         </ul>
       </nav>
       <SocialLinks />
-
-    </motion.div>
+    </header>
   );
 }

@@ -8,6 +8,9 @@ import Footer from "@/components/footer";
 import ThemeSwitch from "@/components/theme-switch";
 import Hero from "@/components/hero";
 
+import "swiper/css";
+import "swiper/css/navigation";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,18 +24,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="!scroll-smooth">
-      <body className={`${inter.className} bg-gray-50 text-gray-950 relative  dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}>
-      <ThemeContextProvider>
-          <ActiveSectionContextProvider>
-            <Header />
-            <Hero />
-            {children}
-            <Footer />
-            {/* <Toaster position="top-right" /> */}
-            <ThemeSwitch />
-          </ActiveSectionContextProvider>
-        </ThemeContextProvider>
+    <html lang="en" className="!scroll-smooth" suppressHydrationWarning={true}>
+      <body
+        className={`${inter.className} bg-gray-50 text-gray-950 relative  dark:bg-gray-900 dark:text-gray-50 dark:text-opacity-90`}
+      >
+          <ThemeContextProvider>
+            <ActiveSectionContextProvider>
+              <Header />
+              <Hero />
+              {children}
+              <Footer />
+              {/* <Toaster position="top-right" /> */}
+              <ThemeSwitch />
+            </ActiveSectionContextProvider>
+          </ThemeContextProvider>
       </body>
     </html>
   );
