@@ -8,16 +8,20 @@ export const headerLinks = [
       hash: "#matches",
     },
     {
+      name: "Events",
+      hash: "#events",
+    },
+    {
       name: "FPL",
       hash: "#fpl",
     },
     {
-      name: "Players",
-      hash: "#players",
+      name: "Statistics",
+      hash: "#statistics",
     },
     {
-      name: "Events",
-      hash: "#events",
+      name: "Players",
+      hash: "#players",
     },
     {
       name: "Blogs",

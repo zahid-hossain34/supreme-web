@@ -2,7 +2,7 @@
 @tailwind utilities;
 @tailwind components;
 
-/* html {
+html {
   --line-color: #e5e7eb;
 }
 
@@ -12,5 +12,24 @@ html.dark {
 
 .borderBlack {
   @apply border border-black/10;
-} */
+} 
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
 
+th, td {
+  padding: 15px 30px; /* 15px top/bottom, 30px left/right */
+  text-align: left;
+}
+
+th {
+  background-color: #94a3b8; /* gray */
+  letter-spacing: 2px;
+  opacity: .5;
+}
+
+tr {
+  background-color: #e2e8f0;
+  border-bottom: 3px solid whitesmoke;
+}
